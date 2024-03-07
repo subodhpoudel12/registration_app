@@ -11,6 +11,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import *
 from rest_framework.response import Response
+from rest_framework import status
+
 
 class OrganizationView(APIView):
     def get(self, request): 
@@ -31,10 +33,11 @@ class OrganizationView(APIView):
                    for output in OrganizationsInfo.objects.all()]
         return Response(output)
     def post(self, request):
-        serializer=OrganizationSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-         serializer.save()
-        return Response(serializer.data)
+        serializer = OrganizationSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class StudentView(APIView):
     def get(self, request): 
@@ -72,9 +75,10 @@ class StudentView(APIView):
 
     def post(self, request):
         serializer=StudentSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
+        if serializer.is_valid():
             serializer.save()
-        return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # from django.shortcuts import render, redirect
@@ -96,3 +100,11 @@ class StudentView(APIView):
 #     return render(request, 'register.html', {'form': form})
 def index_view(request):
     return render(request, 'registration_app/register.html')
+
+# class OrganizationView(APIView):
+#     def post(self, request):
+#         serializer = OrganizationSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -55,8 +55,7 @@
   </style>
 </head>
 <body>
-  <form action="/register_organization/" method="post">
-    {% csrf_token %}
+  <form action="/register/" method="post">    {% csrf_token %}
     <h2 class="heading">Register Organization</h2>
     <div class="container">
       <div>
@@ -71,6 +70,10 @@
       <div>
         <label><b>Organization Code:</b></label>
         <input type="text" name="organizationCode" placeholder="Enter School Code" required>
+      </div>
+      <div>
+        <label><b>Organization Type:</b></label>
+        <input type="text" name="organizationType" placeholder="Enter School Type" required>
       </div>
       <div>
         <label><b>Province:</b></label>
@@ -104,10 +107,7 @@
         <label><b>Organization URL(website):</b></label>
         <input type="text" name="website" placeholder="Enter URL(website)">
       </div>
-      <div>
-        <label><b>Organization Type:</b></label>
-        <input type="text" name="organizationType" placeholder="Enter School Type" required>
-      </div>
+      
       <input type="submit" class="button" value="Register">
     </div>
   </form>

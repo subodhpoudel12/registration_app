@@ -17,14 +17,24 @@ def root(*args):
     return join(abspath(dirname(__file__)), *args)
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'default.db',
+#         # 'USER': '',
+#         # 'PASSWORD': '',
+#         # 'HOST': '',
+#         # 'PORT': '',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'default.db',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MYSQL',
+        'USER': 'user',
+        'PASSWORD': 'root',
+        'HOST': 'local.edly.io',  # or the hostname where your MySQL server is running
+        'PORT': '3306',      # or the port on which your MySQL server is listening
     }
 }
 

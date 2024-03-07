@@ -24,7 +24,7 @@ urlpatterns = [
     path('register/', views.index_view, name='index'),
 
     # path('api/', include('api.urls')),
-    path('', OrganizationView.as_view(), name='anything'),
+    path('organization/', OrganizationView.as_view(), name='anything'),
     # path('register_organization/', register_organization, name='register'),
     path('student/', StudentView.as_view(), name='student'),
     # path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
