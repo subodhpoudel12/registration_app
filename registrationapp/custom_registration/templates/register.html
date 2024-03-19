@@ -55,25 +55,22 @@
   </style>
 </head>
 <body>
-  <form action="/click_user" method="post">
+  <form action="/register/" method="post">
     {% csrf_token %}
-    <h2 class="heading">Register Organizations</h2>
+    <h2 class="heading">Register Organization</h2>
     <div class="container">
       <div>
         <label><b>Enter Organization name:</b></label>
-        <input type="text" name="username" placeholder="Enter Organization name" required>
+        <input type="text" name="organizationName" placeholder="Enter Organization name" required>
       </div>
       <div>
-        <label><b>Email:</b></label>
+        <label><b>Organization Email:</b></label>
         <input type="text" name="email" placeholder="Enter Organization Email" required>
       </div>
+      
       <div>
-        <label><b>Password:</b></label>
-        <input type="password" name="password" placeholder="Enter Password" required>
-      </div>
-      <div>
-        <label><b>School Code:</b></label>
-        <input type="text" name="school_code" placeholder="Enter School Code" required>
+        <label><b>Organization Code:</b></label>
+        <input type="text" name="organizationCode" placeholder="Enter School Code" required>
       </div>
       <div>
         <label><b>Province:</b></label>
@@ -85,11 +82,11 @@
       </div>
       <div>
         <label><b>Local Level:</b></label>
-        <input type="text" name="locallevel" placeholder="Enter Local Level" required>
+        <input type="text" name="localLevel" placeholder="Enter Local Level" required>
       </div>
       <div>
         <label><b>Ward No.:</b></label>
-        <input type="text" name="Wardno" placeholder="Enter Ward No." required>
+        <input type="text" name="wardNo" placeholder="Enter Ward No." required>
       </div>
       <div>
         <label><b>Tole:</b></label>
@@ -97,29 +94,21 @@
       </div>
       <div>
         <label><b>Contact No.:</b></label>
-        <input type="text" name="contactno" placeholder="Enter contact No." required>
+        <input type="text" name="contactNo" placeholder="Enter contact No." required>
       </div>
       <div>
-        <label><b>URL(website):</b></label>
-        <input type="text" name="school_code" placeholder="Enter School Code">
+        <label><b>Contact Person.:</b></label>
+        <input type="text" name="contactPerson" placeholder="Enter contact Person" required>
       </div>
       <div>
-        <label><b>School Type:</b></label>
-        <input type="text" name="school_type" placeholder="Enter School Type" required>
+        <label><b>Organization URL(website):</b></label>
+        <input type="text" name="website" placeholder="Enter URL(website)">
+      </div>
+      <div>
+        <label><b>Organization Type:</b></label>
+        <input type="text" name="organizationType" placeholder="Enter School Type" required>
       </div>
       <input type="submit" class="button" value="Register">
-      <!-- <a href="/loginuser" class="link-button">Log in</a> -->
-    </div>
-    <div>
-      {% if messages %}
-      {% for message in messages %}
-      {% if message.tags == 'success' %}
-      {{ message }}
-      {% elif message.tags == 'error' %}
-      {{ message }}
-      {% endif %}
-      {% endfor %}
-      {% endif %}
     </div>
   </form>
 </body>

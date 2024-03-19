@@ -1,6 +1,3 @@
-"""
-Database models for registration_app.
-"""
 from django.db import models
 
 class OrganizationsInfo(models.Model):
